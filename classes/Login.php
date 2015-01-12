@@ -758,9 +758,15 @@ class Login
     {
         $url = 'http://www.gravatar.com/avatar/';
         $url .= md5(strtolower(trim($email)));
+        
+        //Tell gravitar (API) to use the specified site default in case no gravitar is available
+        if (AVATAR_IMAGE_DEFAULT_USE){
+        	$d = urlencode(AVATAR_IMAGE_DEFAULT_URL);
+        }
+        
         $url .= "?s=$s&d=$d&r=$r";
 
-        // the image url (on gravatarr servers), will return in something like
+        // the image url (on gravatar servers), will return in something like
         // http://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=80&d=mm&r=g
         // note: the url does NOT have something like .jpg
         $this->user_gravatar_image_url = $url;
