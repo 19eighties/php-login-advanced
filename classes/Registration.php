@@ -237,4 +237,29 @@ class Registration
             }
         }
     }
+    
+    private function verify_g_recaptcha($response) {
+ 
+ 	/*Google reCAPTCHA API request format
+	
+	https://www.google.com/recaptcha/api/siteverify?secret=your_secret&response=response_string&remoteip=user_ip_address
+	
+	*/
+	
+	$url_api = 'https://www.google.com/recaptcha/api/siteverify?secret='. RECAPTCHA_SECRET_KEY . '&response=' . $response;
+	
+	/* 	Google reCAPTCHA returns a JSON object in the following format
+		{
+		"success": true|false,
+		"error-codes": [...]   // optional
+		}
+	*/
+	
+	$json = file_get_contents($url_api);
+	$json_data = json_decode($json, true);
+	
+	return $json_data["success"];
+        
+    }
+    
 }
