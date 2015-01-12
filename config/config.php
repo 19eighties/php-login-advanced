@@ -113,3 +113,20 @@ define("EMAIL_VERIFICATION_CONTENT", "Please click on this link to activate your
  * This constant will be used in the login and the registration class.
  */
 define("HASH_COST_FACTOR", "10");
+
+/**
+ * Configuration for: Google reCAPTCHA API
+ * @see https://developers.google.com/recaptcha/
+ *
+*/
+define("G_RECAPTCHA_USE", false);
+define("RECAPTCHA_PUBLIC_KEY", "");
+define("RECAPTCHA_SECRET_KEY", "");
+
+/**
+ * Configuration for: Customizations
+ * This is the place where you personalize the application
+ *
+*/
+define("AVATAR_IMAGE_DEFAULT_USE", false);
+define("AVATAR_IMAGE_DEFAULT_URL", "http://127.0.0.1/php-login-advanced/avatars/default/default.png");
